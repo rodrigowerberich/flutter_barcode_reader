@@ -9,6 +9,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.LinearLayout;
 import com.google.zxing.Result
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 
@@ -30,7 +32,13 @@ class BarcodeScannerActivity : Activity(), ZXingScannerView.ResultHandler {
         scannerView.setAutoFocus(true)
         // this paramter will make your HUAWEI phone works great!
         scannerView.setAspectTolerance(0.5f)
-        setContentView(scannerView)
+        val button = Button(this)
+        button.text = "HELLO!!!!"
+
+        val linearLayout = LinearLayout(this)
+        linearLayout.addView(scannerView)
+        linearLayout.addView(button)
+        setContentView(linearLayout)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
